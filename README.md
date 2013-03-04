@@ -1,4 +1,4 @@
-# Authpro
+# Authpro -- Work in progress, do not use yet.
 
 auth-pro is a simple authenication generator for Rails. It:
 
@@ -17,3 +17,4 @@ However, you can easily change the code that auth-pro generates if you want to. 
 
 To be honest you really should change the code. Most of the code in the user model should be moved to a different place but it's 
 up to you if you want to move it into concerns ala Rails 4 or extract the logic into Service Objects.
+
