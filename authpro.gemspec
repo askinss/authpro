@@ -7,11 +7,11 @@ require "authpro/version"
 Gem::Specification.new do |s|
   s.name        = "authpro"
   s.version     = Authpro::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Authpro."
-  s.description = "TODO: Description of Authpro."
+  s.authors     = ["Richard Nyström"]
+  s.email       = ["ricny046@gmail.com"]
+  s.homepage    = "https://github.com/ricn/authpro"
+  s.summary     = "Simple Rails authentication generator for pros"
+  s.description = "Simple Rails authentication generator for pros"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
