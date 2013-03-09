@@ -41,22 +41,15 @@ class AuthproGenerator < Rails::Generators::Base
     route "root to: 'home#index'"
   end
 
-  # def copy_mailers
-  #   puts "copy_mailers"
-  #   copy_file "user_mailer.rb", "app/mailers/user_mailer.rb"
-  # end
+  def copy_mailers
+    copy_file "user_mailer.rb", "app/mailers/user_mailer.rb"
+  end
 
-  # def inject_default_mailer_url_to_dev_env
-  #   puts "inject_default_mailer_url_to_dev_env"
-  #   inject_into_file "config/environments/development.rb", :after => "config.assets.debug = true\n" do
-  #     "  config.action_mailer.default_url_options = { :host => 'localhost:3000' }\n"
-  #   end
-  # end
-
-  # def gems
-  #   puts "gems"
-  #   gem("bcrypt-ruby", :require => "bcrypt")
-  # end
+  def inject_default_mailer_url_to_dev_env
+    inject_into_file "config/environments/development.rb", :after => "config.assets.debug = true\n" do
+      "  config.action_mailer.default_url_options = { :host => 'localhost:3000' }\n"
+    end
+  end
 
   # $ rails g model user email:string password_digest:string auth_token:string password_reset_token:string password_reset_sent_at:datetime
   # Use concerns

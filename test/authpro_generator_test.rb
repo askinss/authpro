@@ -9,6 +9,7 @@ class AuthproGeneratorTest < Rails::Generators::TestCase
   
   test "Assert all files are properly created" do 
     run_generator(["--force"])
+    
     # models
     assert_file "app/models/user.rb"
     
@@ -26,9 +27,14 @@ class AuthproGeneratorTest < Rails::Generators::TestCase
     assert_file "app/views/layouts/application.html.erb"
     assert_file "app/views/home/index.html.erb"
     assert_file "app/views/user_mailer/password_reset.text.erb"
-  
+
+    # mailers
+    assert_file "app/mailers/user_mailer.rb"
   end
 
+  # note: This can be done using 
   # todo: test application_controller injection.
-  # todo : test routes
+  # todo: test routes
+  # todo: test mailers
+  # todo: gem stuff
 end
