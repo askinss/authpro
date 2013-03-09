@@ -1,6 +1,10 @@
 class AuthproGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
 
+  def generate_model
+    generate(:model, "user email:string password_digest:string auth_token:string password_reset_token:string password_reset_sent_at:datetime --force")
+  end
+
   def copy_models
     copy_file "user.rb", "app/models/user.rb"
   end
@@ -52,5 +56,4 @@ class AuthproGenerator < Rails::Generators::Base
   end
 
   # $ rails g model user email:string password_digest:string auth_token:string password_reset_token:string password_reset_sent_at:datetime
-  # Use concerns
 end

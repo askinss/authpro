@@ -1,18 +1,20 @@
 require 'test_helper'
 require 'rails'
 
+# Docs: http://rdoc.info/github/rails/rails/master/Rails/Generators/TestCase
 class AuthproGeneratorTest < Rails::Generators::TestCase
   tests AuthproGenerator
   destination __dir__ + "/rails/dummy"
-  #setup :prepare_destination
-  #teardown :cleanup_destination_root
-  
+    
   test "Assert all files are properly created" do 
     run_generator(["--force"])
     
     # models
     assert_file "app/models/user.rb"
-    
+
+    # migrations
+    assert_migration "db/migrate/create_users.rb"
+
     # controllers
     assert_file "app/controllers/users_controller.rb"
     assert_file "app/controllers/sessions_controller.rb"
