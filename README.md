@@ -1,6 +1,7 @@
 # Authpro
 
 [![Code Climate](https://codeclimate.com/github/ricn/authpro.png)](https://codeclimate.com/github/ricn/authpro)
+[![Build Status](https://travis-ci.org/ricn/authpro.png?branch=master)](https://travis-ci.org/ricn/authpro)
 
 Authpro is a simple authentication generator for Rails. It:
 
