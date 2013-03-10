@@ -5,8 +5,8 @@ require 'rails'
 class AuthproGeneratorTest < Rails::Generators::TestCase
   tests AuthproGenerator
   destination __dir__ + "/rails/dummy"
-    
-  test "Assert all files are properly created" do 
+
+  test "file creation" do 
     run_generator(["--force"])
     
     # models
@@ -39,4 +39,5 @@ class AuthproGeneratorTest < Rails::Generators::TestCase
   # todo: test routes
   # todo: test mailers
   # todo: gem stuff
+  # todo: assert the code?
 end
