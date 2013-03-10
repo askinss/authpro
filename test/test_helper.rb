@@ -2,7 +2,6 @@
 ENV["RAILS_ENV"] = "test"
 
 FileUtils.cp_r __dir__ + "/dummy", __dir__ + "/rails"
-#require File.expand_path('../rails/dummy/config/application.rb', __FILE__)
 require File.expand_path("../rails/dummy/config/environment.rb",  __FILE__)
 require "rails/test_help"
 
