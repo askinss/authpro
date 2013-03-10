@@ -132,13 +132,13 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     url = URI.extract(body).first
     
     # Travel forward in time
-    Timecop.freeze(Date.today + 1) do
+    Timecop.freeze(Date.today + 2) do
       visit url
       fill_in "user_password", with: "new_password!"
       fill_in "user_password_confirmation", with: "new_password!"
       click_button "Update password"
       assert page.body.include?("Password reset has expired.")
     end
-    
+
   end
 end
