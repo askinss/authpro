@@ -3,15 +3,15 @@
 Authpro is a simple authentication generator for Rails. It:
 
 * Gives you sign up, log in, remember me & password reset funtionality
-* Has no external dependencies
 * Has no hidden code, weird sub classing or mixins
 * Has no configuration
+* The gem can be removed from the Gemfile after the generator has been executed.
 
-auth-pro assumes you want:
+Authpro assumes you want:
 
 * User as the model
 * Email for login
-* Erb for views
+* Erb for views. This might be configurable in the future because I like Slim views.
 
 However, you can easily change the code that Authpro generates if you want to. It's just simple Ruby / Rails code.
 
