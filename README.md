@@ -29,14 +29,9 @@ Add this line to your application's Gemfile:
 
 And then execute:
 
-    $ bundle
-
-Run the generator:
-    
+    $ bundle    
     $ rails generate authpro
-
-Start server:
-    
+    $ rake db:migrate    
     $ rails server
 
 Open browser:
