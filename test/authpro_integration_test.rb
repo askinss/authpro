@@ -95,7 +95,24 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test "Reset password failing because we enter a new invalid password" do
-    skip
+    visit "/login"
+    click_link "Forgot your password?"
+    fill_in "Email", with: @user.email
+    click_button "Reset password"
+    assert page.body.include?("Email sent with password reset instructions.")
+    
+    # The e-mail part
+    mail = ActionMailer::Base.deliveries.last
+    assert "from@example.com" == mail["from"].to_s
+    assert @user.email == mail["to"].to_s
+    assert "Password Reset" == mail["subject"].to_s
+    body = mail.body.to_s
+    url = URI.extract(body).first
+    
+    visit url
+    fill_in "user_password", with: "new_password!"
+    fill_in "user_password_confirmation", with: "missmatch!!!"
+    click_button "Update password"
+    assert page.body.include?("Form is invalid")
   end
-
 end
