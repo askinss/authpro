@@ -32,11 +32,4 @@ class AuthproGeneratorTest < Rails::Generators::TestCase
     # mailers
     assert_file "app/mailers/user_mailer.rb"
   end
-
-  # note: This can be done using 
-  # todo: test application_controller injection.
-  # todo: test routes
-  # todo: test mailers
-  # todo: gem stuff
-  # todo: assert the code?
 end
