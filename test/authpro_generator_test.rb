@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'rails'
 
 # Docs: http://rdoc.info/github/rails/rails/master/Rails/Generators/TestCase
 class AuthproGeneratorTest < Rails::Generators::TestCase
