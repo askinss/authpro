@@ -19,7 +19,9 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.0.0.beta1"
   s.add_dependency "bcrypt-ruby", "~> 3.0.0"
 
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "sqlite3" if s.platform.to_s == 'ruby'
+  s.add_development_dependency "jdbc-sqlite3" if s.platform.to_s == 'jruby'
+
   s.add_development_dependency "capybara"
   s.add_development_dependency "database_cleaner", "~> 1.0.0.RC1"
   s.add_development_dependency "timecop"
