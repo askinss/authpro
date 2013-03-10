@@ -30,7 +30,9 @@ And then execute:
     $ bundle
 
 Run the generator:
+    
     $ rails generate authpro
 
 Start server:
+    
     $ rails server
