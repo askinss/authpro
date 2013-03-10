@@ -86,7 +86,15 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     assert page.body.include?("Password has been reset.")   
   end
 
-  test "Reset password failing" do
+  test "Reset password failing because email does not exist" do
+    visit "/login"
+    click_link "Forgot your password?"
+    fill_in "Email", with: "nosense@example.com"
+    click_button "Reset password"
+    assert page.body.include?("We could not find anyone with that email address.")
+  end
+
+  test "Reset password failing because we enter a new invalid password" do
     skip
   end
 
