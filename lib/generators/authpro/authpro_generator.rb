@@ -51,7 +51,7 @@ class AuthproGenerator < Rails::Generators::Base
 
   def inject_default_mailer_url_to_dev_env
     inject_into_file "config/environments/development.rb", :after => "config.assets.debug = true\n" do
-      "  config.action_mailer.default_url_options = { :host => 'localhost:3000' }\n"
+      "  config.action_mailer.default_url_options = { host: \"localhost:3000\" }\n"
     end
   end
 
