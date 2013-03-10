@@ -28,4 +28,3 @@ class ActionDispatch::IntegrationTest
     Capybara.use_default_driver
   end
 end
-
