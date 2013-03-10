@@ -4,13 +4,13 @@ ENV["RAILS_ENV"] = "test"
 FileUtils.cp_r __dir__ + "/dummy", __dir__ + "/rails"
 require File.expand_path("../rails/dummy/config/environment.rb",  __FILE__)
 require "rails/test_help"
-
-require 'capybara/rails'
-require "database_cleaner"
-Rails.backtrace_cleaner.remove_silencers!
-
 require "rails/generators/test_case"
+require "capybara/rails"
+require "database_cleaner"
+require "timecop"
 require "generators/authpro/authpro_generator"
+
+Rails.backtrace_cleaner.remove_silencers!
 
 DatabaseCleaner.strategy = :truncation
 
