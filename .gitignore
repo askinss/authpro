@@ -7,6 +7,11 @@ test/dummy/.sass-cache
 test/rails/dummy/log/*.log
 test/rails/dummy/tmp/
 test/rails/dummy/.sass-cache
+test/rails/dummy/db/test.sqlite3
+test/rails/dummy/test/fixtures/
+
 .DS_Store
 
 TODO.md
+
+test/rails/dummy/test/fixtures/users.yml
