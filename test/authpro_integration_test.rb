@@ -115,4 +115,30 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     click_button "Update password"
     assert page.body.include?("Form is invalid")
   end
+
+  test "Reset password failing because of expiration" do
+    visit "/login"
+    click_link "Forgot your password?"
+    fill_in "Email", with: @user.email
+    click_button "Reset password"
+    assert page.body.include?("Email sent with password reset instructions.")
+    
+    # The e-mail part
+    mail = ActionMailer::Base.deliveries.last
+    assert "from@example.com" == mail["from"].to_s
+    assert @user.email == mail["to"].to_s
+    assert "Password Reset" == mail["subject"].to_s
+    body = mail.body.to_s
+    url = URI.extract(body).first
+    
+    # Travel forward in time
+    Timecop.freeze(Date.today + 1) do
+      visit url
+      fill_in "user_password", with: "new_password!"
+      fill_in "user_password_confirmation", with: "new_password!"
+      click_button "Update password"
+      assert page.body.include?("Password reset has expired.")
+    end
+    
+  end
 end
