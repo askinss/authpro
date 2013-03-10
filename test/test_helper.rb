@@ -1,8 +1,11 @@
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 
-FileUtils.cp_r __dir__ + "/dummy", __dir__ + "/rails"
-require __dir__ + "/rails/dummy/config/environment.rb"
+dummy_dir = File.expand_path(File.join(File.dirname(__FILE__), "dummy"))
+rails_dir = File.expand_path(File.join(File.dirname(__FILE__), "rails"))
+rails_dummy_dir = rails_dir + "/dummy"
+FileUtils.cp_r dummy_dir, rails_dir
+require rails_dummy_dir + "/config/environment.rb"
 require "rails/test_help"
 require "rails/generators/test_case"
 require "capybara/rails"
