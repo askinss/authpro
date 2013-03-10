@@ -3,7 +3,7 @@ require 'test_helper'
 # Docs: http://rdoc.info/github/rails/rails/master/Rails/Generators/TestCase
 class AuthproGeneratorTest < Rails::Generators::TestCase
   tests AuthproGenerator
-  destination __dir__ + "/rails/dummy"
+  destination File.expand_path(File.join(File.dirname(__FILE__), "rails", "dummy"))
 
   test "file creation" do 
     run_generator(["--force"])
