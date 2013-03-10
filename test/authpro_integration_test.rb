@@ -23,7 +23,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     pass = "sekret123"
     fill_in "user_password", with: pass
     fill_in "user_password_confirmation", with: pass
-    click_button "Create User"
+    click_button "Sign up"
     assert page.body.include? "Signed up!"    
   end
 
@@ -33,7 +33,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     fill_in "Email", with: "user@example.com"
     fill_in "user_password", with: "sekret123"
     fill_in "user_password_confirmation", with: "another password"
-    click_button 'Create User'
+    click_button "Sign up"
     assert page.body.include? "Form is invalid"
   end
 
@@ -82,7 +82,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     visit url
     fill_in "user_password", with: "new_password!"
     fill_in "user_password_confirmation", with: "new_password!"
-    click_button "Update password"
+    click_button "Change password"
     assert page.body.include?("Password has been reset.")   
   end
 
@@ -112,7 +112,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     visit url
     fill_in "user_password", with: "new_password!"
     fill_in "user_password_confirmation", with: "missmatch!!!"
-    click_button "Update password"
+    click_button "Change password"
     assert page.body.include?("Form is invalid")
   end
 
@@ -136,7 +136,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
       visit url
       fill_in "user_password", with: "new_password!"
       fill_in "user_password_confirmation", with: "new_password!"
-      click_button "Update password"
+      click_button "Change password"
       assert page.body.include?("Password reset has expired.")
     end
 
