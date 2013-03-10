@@ -55,7 +55,12 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test "logout" do
-    skip
+    visit "/login"
+    fill_in "Email", with: @user.email
+    fill_in "Password", with: "sekret123"
+    click_button "Log in"
+    click_link "Log out"
+    assert page.body.include?("Logged out!")
   end
 
   test "Reset password" do
