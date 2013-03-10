@@ -14,10 +14,45 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     assert page.body.include? "Home"
   end
 
-  test "successful signup" do
+  test "signup" do
     visit "/"
     click_link "Sign up"
-    
+    fill_in "Email", with: "user@example.com"
+    pass = "sekret123"
+    fill_in "user_password", with: pass
+    fill_in "user_password_confirmation", with: pass
+    click_button "Create User"
+    assert page.body.include? "Signed up!"    
+  end
+
+  test "signup failing" do
+    visit "/"
+    click_link "Sign up"
+    fill_in "Email", with: "user@example.com"
+    fill_in "user_password", with: "sekret123"
+    fill_in "user_password_confirmation", with: "another password"
+    click_button 'Create User'
+    assert page.body.include? "Form is invalid"
+  end
+
+  test "login" do
+    skip
+  end
+
+  test "login failing" do
+    skip
+  end
+
+  test "logout" do
+    skip
+  end
+
+  test "Reset password" do
+    skip
+  end
+
+  test "Reset password failing" do
+    skip
   end
 
 end
