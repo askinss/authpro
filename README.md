@@ -8,7 +8,6 @@ Authpro is a simple authentication generator for Rails. It:
 * Gives you sign up, log in, remember me & password reset funtionality
 * Has no hidden code, weird sub classing or mixins
 * Has no configuration
-* Can be removed from the Gemfile after the generator has been executed.
 
 Authpro assumes you want:
 
