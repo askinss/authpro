@@ -6,7 +6,8 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     # We should really run the generator here
     ActiveRecord::Migration.verbose = false
     ActiveRecord::Migrator.migrate("#{Rails.root}/db/migrate")
-    Dummy::Application.reload_routes! 
+    Dummy::Application.reload_routes!
+    @user = User.create!(email: "master@example.com", password: "sekret123", password_confirmation: "sekret123")
   end
 
   test "Visit home" do
@@ -36,17 +37,21 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test "login" do
-    user = User.create!(email: "master@example.com", password: "sekret123", password_confirmation: "sekret123")
     visit "/"
     click_link "Log in"
-    fill_in "Email", with: "master@example.com"
+    fill_in "Email", with: @user.email
     fill_in "Password", with: "sekret123"
     click_button "Log in"
     assert page.body.include?("Logged in!")
   end
 
   test "login failing" do
-    skip
+    visit "/"
+    click_link "Log in"
+    fill_in "Email", with: @user.email
+    fill_in "Password", with: "wrong_password!"
+    click_button "Log in"
+    assert page.body.include?("Invalid email or password")
   end
 
   test "logout" do
