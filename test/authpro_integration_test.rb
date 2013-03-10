@@ -36,7 +36,13 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test "login" do
-    skip
+    user = User.create!(email: "master@example.com", password: "sekret123", password_confirmation: "sekret123")
+    visit "/"
+    click_link "Log in"
+    fill_in "Email", with: "master@example.com"
+    fill_in "Password", with: "sekret123"
+    click_button "Log in"
+    assert page.body.include?("Logged in!")
   end
 
   test "login failing" do
