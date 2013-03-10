@@ -1,6 +1,6 @@
-# Authpro -- Work in progress, do not use yet.
+# Authpro
 
-auth-pro is a simple authenication generator for Rails. It:
+Authpro is a simple authentication generator for Rails. It:
 
 * Gives you sign up, log in, remember me & password reset funtionality
 * Has no external dependencies
@@ -13,14 +13,8 @@ auth-pro assumes you want:
 * Email for login
 * Erb for views
 
-However, you can easily change the code that auth-pro generates if you want to. It's just simple Rails code.
+However, you can easily change the code that Authpro generates if you want to. It's just simple Ruby / Rails code.
 
-To be honest you really should change the code. Most of the code in the user model should be moved to a different place but it's 
-up to you if you want to move it into concerns ala Rails 4 or extract the logic into Service Objects.
+To be honest you really should change the generated code. Most of the code in the user model should be moved to a different place. You can use the new concerns functionality in Rails 4. More information about concerns can be found [here](http://37signals.com/svn/posts/3372-put-chubby-models-on-a-diet-with-concerns).
 
-Add authpro to Gemfile
-Uncomment bcrypt
-bundle install
-run rails g authpro
-rake db:migrate
-rails s
+If concerns concerns you, you can always extract the code into Service Objects. More info about Service Objects can be found [here](http://railscasts.com/episodes/398-service-objects).
