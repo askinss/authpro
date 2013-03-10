@@ -4,7 +4,6 @@ require "uri"
 class AuthproIntegrationTest < ActionDispatch::IntegrationTest
   
   setup do
-    # We should really run the generator here
     ActiveRecord::Migration.verbose = false
     ActiveRecord::Migrator.migrate("#{Rails.root}/db/migrate")
     Dummy::Application.reload_routes!
