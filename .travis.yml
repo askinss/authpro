@@ -2,7 +2,6 @@ language: ruby
 rvm:
   - 2.0.0
   - 1.9.3
-  - ruby-head
 notifications:
   recipients:
     - ricny046@gmail.com
