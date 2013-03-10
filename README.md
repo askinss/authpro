@@ -1,4 +1,4 @@
-# Authpro
+# Authpro - Rails 4 only at the moment
 
 [![Code Climate](https://codeclimate.com/github/ricn/authpro.png)](https://codeclimate.com/github/ricn/authpro)
 [![Build Status](https://travis-ci.org/ricn/authpro.png?branch=master)](https://travis-ci.org/ricn/authpro)
