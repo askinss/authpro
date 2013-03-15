@@ -82,6 +82,4 @@ class AuthproGenerator < Rails::Generators::Base
       "  config.action_mailer.default_url_options = { host: \"localhost:3000\" }\n"
     end
   end
-
-  # $ rails g model user email:string password_digest:string auth_token:string password_reset_token:string password_reset_sent_at:datetime
 end
