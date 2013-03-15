@@ -10,7 +10,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     @user = User.create!(email: "master@example.com", password: "sekret123", password_confirmation: "sekret123")
   end
 
-  test "Visit home" do
+  test "visit home" do
     visit "/"
     assert page.body.include? "Home"
   end
@@ -63,7 +63,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     assert page.body.include?("Logged out!")
   end
 
-  test "Reset password" do
+  test "reset password" do
     visit "/login"
     click_link "Forgot your password?"
     fill_in "Email", with: @user.email
@@ -85,7 +85,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     assert page.body.include?("Password has been reset.")   
   end
 
-  test "Reset password failing because email does not exist" do
+  test "reset password failing because email does not exist" do
     visit "/login"
     click_link "Forgot your password?"
     fill_in "Email", with: "nosense@example.com"
@@ -93,7 +93,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     assert page.body.include?("We could not find anyone with that email address.")
   end
 
-  test "Reset password failing because we enter a new invalid password" do
+  test "reset password failing because we enter a new invalid password" do
     visit "/login"
     click_link "Forgot your password?"
     fill_in "Email", with: @user.email
@@ -115,7 +115,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     assert page.body.include?("Form is invalid")
   end
 
-  test "Reset password failing because of expiration" do
+  test "reset password failing because of expiration" do
     visit "/login"
     click_link "Forgot your password?"
     fill_in "Email", with: @user.email
