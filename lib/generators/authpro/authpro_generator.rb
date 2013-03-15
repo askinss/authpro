@@ -5,9 +5,37 @@ class AuthproGenerator < Rails::Generators::Base
     generate(:model, "user email:string password_digest:string auth_token:string password_reset_token:string password_reset_sent_at:datetime --force")
   end
 
-  def copy_models
-    copy_file "user.rb", "app/models/user.rb"
+  def inject_model_code
+    inject_into_file 'app/models/user.rb', :after => "class User < ActiveRecord::Base\n" do 
+
+  <<-'RUBY'
+  has_secure_password
+  
+  validates_presence_of :password, on: :create
+
+  before_create { generate_token(:auth_token) }
+  
+  def self.authenticate(email, password)
+    user = find_by email: email
+    user if user && user.authenticate(password)
   end
+    
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
+
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UserMailer.password_reset(self).deliver
+  end
+  RUBY
+
+  end
+ end
 
   def copy_controllers
     copy_file "users_controller.rb", "app/controllers/users_controller.rb"
