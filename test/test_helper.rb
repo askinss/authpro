@@ -13,6 +13,7 @@ require "database_cleaner"
 require "timecop"
 require "generators/authpro/authpro_generator"
 require "turn"
+require "securerandom"
 
 Rails.backtrace_cleaner.remove_silencers!
 
@@ -28,4 +29,8 @@ class ActionDispatch::IntegrationTest
     Capybara.reset_sessions!
     Capybara.use_default_driver
   end
+end
+
+def fake_email
+  "#{SecureRandom.urlsafe_base64}@sample.com"  
 end

@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
   
-  validates_presence_of :password, on: :create
-
+  validates :password, presence: true, on: :create
+  validates :email, presence: true, uniqueness: true, format: /@/
+  
   before_create { generate_token(:auth_token) }
   
   def self.authenticate(email, password)

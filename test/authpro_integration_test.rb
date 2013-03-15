@@ -7,7 +7,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
     ActiveRecord::Migration.verbose = false
     ActiveRecord::Migrator.migrate("#{Rails.root}/db/migrate")
     Dummy::Application.reload_routes!
-    @user = User.create!(email: "master@example.com", password: "sekret123", password_confirmation: "sekret123")
+    @user = User.create!(email: fake_email, password: "sekret123", password_confirmation: "sekret123")
   end
 
   test "visit home" do
@@ -18,7 +18,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
   test "signup" do
     visit "/"
     click_link "Sign up"
-    fill_in "Email", with: "user@example.com"
+    fill_in "Email", with: fake_email
     pass = "sekret123"
     fill_in "user_password", with: pass
     fill_in "user_password_confirmation", with: pass
@@ -29,7 +29,7 @@ class AuthproIntegrationTest < ActionDispatch::IntegrationTest
   test "signup failing" do
     visit "/"
     click_link "Sign up"
-    fill_in "Email", with: "user@example.com"
+    fill_in "Email", with: fake_email
     fill_in "user_password", with: "sekret123"
     fill_in "user_password_confirmation", with: "another password"
     click_button "Sign up"
