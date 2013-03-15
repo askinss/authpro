@@ -5,7 +5,7 @@ class AuthproGeneratorTest < Rails::Generators::TestCase
   tests AuthproGenerator
   destination File.expand_path(File.join(File.dirname(__FILE__), "rails", "dummy"))
 
-  test "file creation" do 
+  test "generated files" do 
     run_generator(["--force"])
     
     # models

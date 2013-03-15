@@ -12,6 +12,7 @@ require "capybara/rails"
 require "database_cleaner"
 require "timecop"
 require "generators/authpro/authpro_generator"
+require "turn"
 
 Rails.backtrace_cleaner.remove_silencers!
 
