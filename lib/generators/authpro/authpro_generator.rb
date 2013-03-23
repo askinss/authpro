@@ -11,7 +11,6 @@ class AuthproGenerator < Rails::Generators::Base
   <<-'RUBY'
   has_secure_password
   
-  validates :password, presence: true, on: :create
   validates :email, presence: true, uniqueness: true, format: /@/
   
   before_create { generate_token(:auth_token) }
