@@ -5,7 +5,7 @@
 
 Authpro is a simple authentication generator for Rails 4. It:
 
-* Gives you sign up, log in, remember me & password reset funtionality
+* Gives you sign up, log in, remember me & password reset functionality
 * Has no hidden code, special super classes or mixins
 * Has no configuration
 
