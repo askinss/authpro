@@ -3,7 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/ricn/authpro.png)](https://codeclimate.com/github/ricn/authpro)
 [![Build Status](https://travis-ci.org/ricn/authpro.png?branch=master)](https://travis-ci.org/ricn/authpro)
 
-Authpro is a simple authentication generator for Rails 4.0.0.rc2 It:
+Authpro is a simple authentication generator for Rails 4 It:
 
 * Gives you sign up, log in, remember me & password reset functionality
 * Has no hidden code, special super classes or mixins
