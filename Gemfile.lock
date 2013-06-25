@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    authpro (0.9.3)
+    authpro (1.0.0)
       bcrypt-ruby (~> 3.0)
       rails (~> 4.0)
 
