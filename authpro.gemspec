@@ -17,11 +17,11 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.0"
-  s.add_dependency "bcrypt-ruby", "~> 3.0"
+  s.add_dependency "bcrypt-ruby", "~> 3.1.0"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "capybara"
-  s.add_development_dependency "database_cleaner", "~> 1.0.1"
+  s.add_development_dependency "database_cleaner", "~> 1.2"
   s.add_development_dependency "timecop"
   s.add_development_dependency "turn"
 end
